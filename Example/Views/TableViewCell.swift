@@ -10,7 +10,10 @@ import UIKit
 
 final class TableViewCell: UITableViewCell {
 
-    
+    override func prepareForReuse() {
+        categoryImage.image = nil
+        categoryLabel.text = ""
+    }
 
     @IBOutlet private weak var categoryImage: UIImageView!
     @IBOutlet private weak var categoryLabel: UILabel!
@@ -27,13 +30,13 @@ final class TableViewCell: UITableViewCell {
     }
     
     
-    func feedData(label:String?, imageURL:String?)-> TableViewCell{
-        if let label = label {
+    func feedData(category:Category?)-> TableViewCell{
+        if let label = category?.label {
             print("Label found \(label)")
             categoryLabel.text = label
         }
         
-        if let urlString = imageURL{
+        if let urlString = category?.imageURL{
             if let url = URL(string: urlString){
                 print("Got Url")
                 loadImage(imageUrl: url)

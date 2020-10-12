@@ -12,7 +12,17 @@ final class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var categories = Categories()
+    
+    var viewModel:ViewModel!
+    
+    class func initViewController()->ViewController{
+      
+        let viewController =  ViewController(nibName: "ViewController", bundle: nil)
+        viewController.viewModel = ViewModel(networkManager: URLSession.shared)
+        return viewController
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,64 +35,46 @@ final class ViewController: UIViewController {
         
         tableView.estimatedRowHeight = 140
         tableView.rowHeight = UITableView.automaticDimension
-        
-        downloadJson {
-            self.tableView.reloadData()
-        }
-        
-    }
-    
-    func downloadJson(completed: @escaping () ->()){
-        
-        if let categoryURL = URL(string: ApiURLs.categoriesURL){
-            let session = URLSession.shared
-            let task = session.dataTask(with: categoryURL) { (data, response, error) in
-                if let data = data, error == nil{
-                    let decoder = JSONDecoder()
-                    do{
-                        
-                        self.categories = try decoder.decode(Categories.self, from: data)
-                        
-                        print("categories loaded succesfully")
-                        DispatchQueue.main.async {
-                            completed()
-                        }
-                
-                    }
-                    catch{
-                        print("Error")
-                    }
+
+        do{
+            try viewModel.downloadJson(completion: { [weak self] (succes) in
+                if succes{
+                    self?.tableView.reloadData()
                 }
-            }
-         task.resume()
+                else{
+                    //handle error
+                    print("Error")
+                }
+            })
         }
-
+        catch( let error ) {
+            print(error)
+            
+        }
     }
-
+    // escaping closure
+    
 
 }
 
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = categories.groceries?.count{
-            print(count)
-            return count
-        }
-        return 0
+        let count = viewModel.getCountOfGroceries()
+       
+        return count
+     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableViewCell{
             
-            if categories.groceries != nil{
-                if categories.groceries!.indices.contains(indexPath.row){
-                    
-                    return cell.feedData(label: categories.groceries![indexPath.row].label, imageURL: categories.groceries![indexPath.row].imageURL)
-                }
-                
-            }
+  
+            let cellData = viewModel.getCellData(indexPath: indexPath)
+            
+            //call object
+            return cell.feedData(category: cellData)
         }
         
         
