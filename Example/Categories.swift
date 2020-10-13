@@ -13,6 +13,10 @@ struct Categories:Codable{
     
     
     var groceries:[Category]?
+    
+    enum CodingKeys: String, CodingKey{
+        case groceries = "items"
+    }
  
     
 }

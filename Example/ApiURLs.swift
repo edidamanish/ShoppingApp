@@ -9,5 +9,5 @@
 import Foundation
 
 struct ApiURLs{
-    static let categoriesURL = "https://run.mocky.io/v3/7af46393-9d87-45e2-9de4-4c9d96f487b5"
+    static let categoriesURL = "https://run.mocky.io/v3/9f37156a-bbdb-4036-bdbb-c4dcb2ca1f0a"
 }

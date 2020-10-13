@@ -15,6 +15,9 @@ final class ViewController: UIViewController {
     
     var viewModel:ViewModel!
     
+ 
+    
+    
     class func initViewController()->ViewController{
       
         let viewController =  ViewController(nibName: "ViewController", bundle: nil)
