@@ -28,6 +28,7 @@ final class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //self.buyButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     
     
@@ -36,22 +37,25 @@ final class CollectionViewCell: UICollectionViewCell {
     weak var delegate:BuyButtonDelegate?
     
     
+    var buyButtonAction:((Int)->())?
     
     
     @IBAction func buttonTapped(_ sender: Any) {
+        
+        
+ 
         guard let id = categoryId else {
             return
         }
-        delegate?.didTapButton(productId: id)
+        buyButtonAction?(id)
+        
+        //delegate?.didTapButton(productId: id)
         
     }
     
     //Completion Closure
     
-    /*@IBAction func buttomTappedWithClosure(_ sender: Any, completion: @escaping (()->())) {
-        completion()
-        
-    }*/
+
     
     
     

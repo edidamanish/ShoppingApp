@@ -84,6 +84,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let secondVC = SecondViewController.initViewController()
+        self.navigationController?.pushViewController(secondVC, animated: true)
+    }
+    
     
 }
 

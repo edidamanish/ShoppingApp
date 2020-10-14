@@ -15,6 +15,8 @@ class SecondViewController: UIViewController {
     
     var viewModel:ViewModel!
     
+   
+    
     class func initViewController()->SecondViewController{
         let viewController = SecondViewController(nibName: "SecondViewController", bundle: nil)
         viewController.viewModel = ViewModel(networkManager: URLSession.shared)
@@ -50,13 +52,14 @@ class SecondViewController: UIViewController {
             print(error)
         }
         
-        
-        
-        
-        // Do any additional setup after loading the view.
+  
     }
 
-
+    @IBAction func tapBackButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -85,6 +88,14 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.delegate = self
             let cellData = viewModel.getCellData(indexPath: indexPath)
             
+            cell.buyButtonAction = { (productId) in
+                
+                Singleton.shared.addToCart(productId: productId)
+                print(Singleton.shared.getCart())
+                
+            }
+            
+            
             
             
             return cell.feedData(category: cellData)
@@ -100,7 +111,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         print(Singleton.shared.getCart())
         
     }
-    
+
 
     
 }
