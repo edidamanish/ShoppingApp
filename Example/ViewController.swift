@@ -14,6 +14,11 @@ final class ViewController: UIViewController {
     
     @IBOutlet weak var cartTableView: UITableView!
     
+    @IBOutlet weak var cartButton: UIButton!
+    
+    @IBOutlet weak var cartTableHeight: NSLayoutConstraint!
+    
+    
     var viewModel:ViewModel!
     
     var cartOpen = false
@@ -45,14 +50,23 @@ final class ViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         
         
+        cartTableHeight.constant = 0
+        
         cartTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableVC")
         cartTableView.delegate = self
         cartTableView.dataSource = self
         
+        
         cartTableView.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
         cartTableView.layer.borderWidth = 2.0
-        cartTableView.estimatedRowHeight = 42
-        cartTableView.rowHeight = UITableView.automaticDimension
+        //cartTableView.estimatedRowHeight = 42
+        //cartTableView.rowHeight = UITableView.automaticDimension
+        cartTableView.layer.cornerRadius = 10
+        
+        
+        cartButton.layer.cornerRadius = 10
+        cartButton.clipsToBounds = true
+        
         
         
 
@@ -60,7 +74,7 @@ final class ViewController: UIViewController {
             try viewModel.downloadJson(completion: { [weak self] (succes) in
                 if succes{
                     self?.tableView.reloadData()
-                    self?.cartTableView.reloadData()
+                    
                 }
                 else{
                     //handle error
@@ -74,7 +88,7 @@ final class ViewController: UIViewController {
         }
     }
     
-
+    
     // escaping closure
     @IBAction func cartButton(_ sender: Any) {
         if cartOpen{
@@ -83,7 +97,11 @@ final class ViewController: UIViewController {
             
         }
         else{
+            
             cartTableView.reloadData()
+            cartTableView.layoutIfNeeded()
+            cartTableHeight.constant = cartTableView.contentSize.height
+           // cartTableView.heightAnchor.constraint( equalToConstant: cartTableView.contentSize.height).isActive = true
             cartTableView.alpha = 1
             cartOpen = true
         }

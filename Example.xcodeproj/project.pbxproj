@@ -18,6 +18,8 @@
 		E31553BB252F0C3900329973 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31553BA252F0C3900329973 /* Categories.swift */; };
 		E3623E2425381250006E0F2E /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3623E2225381250006E0F2E /* CartTableViewCell.swift */; };
 		E3623E2525381250006E0F2E /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3623E2325381250006E0F2E /* CartTableViewCell.xib */; };
+		E3623E5425385C77006E0F2E /* CartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3623E5325385C77006E0F2E /* CartView.xib */; };
+		E3623E5625385DC7006E0F2E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3623E5525385DC7006E0F2E /* CartView.swift */; };
 		E370A84B253462DE0065FD73 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370A849253462DE0065FD73 /* SecondViewController.swift */; };
 		E370A84C253462DE0065FD73 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E370A84A253462DE0065FD73 /* SecondViewController.xib */; };
 		E370A850253464EC0065FD73 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370A84E253464EC0065FD73 /* CollectionViewCell.swift */; };
@@ -43,6 +45,8 @@
 		E31553BA252F0C3900329973 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		E3623E2225381250006E0F2E /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		E3623E2325381250006E0F2E /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		E3623E5325385C77006E0F2E /* CartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartView.xib; sourceTree = "<group>"; };
+		E3623E5525385DC7006E0F2E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		E370A849253462DE0065FD73 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E370A84A253462DE0065FD73 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		E370A84E253464EC0065FD73 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				E370A84F253464EC0065FD73 /* CollectionViewCell.xib */,
 				E3623E2225381250006E0F2E /* CartTableViewCell.swift */,
 				E3623E2325381250006E0F2E /* CartTableViewCell.xib */,
+				E3623E5325385C77006E0F2E /* CartView.xib */,
+				E3623E5525385DC7006E0F2E /* CartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +183,7 @@
 			files = (
 				E31553A8252EF92400329973 /* LaunchScreen.storyboard in Resources */,
 				E31553B5252F0AF000329973 /* TableViewCell.xib in Resources */,
+				E3623E5425385C77006E0F2E /* CartView.xib in Resources */,
 				E3623E2525381250006E0F2E /* CartTableViewCell.xib in Resources */,
 				E370A851253464EC0065FD73 /* CollectionViewCell.xib in Resources */,
 				E31553A5252EF92400329973 /* Assets.xcassets in Resources */,
@@ -200,6 +207,7 @@
 				E370A8572534846D0065FD73 /* Product.swift in Sources */,
 				E315539C252EF92200329973 /* AppDelegate.swift in Sources */,
 				E370A85925348B550065FD73 /* Cart.swift in Sources */,
+				E3623E5625385DC7006E0F2E /* CartView.swift in Sources */,
 				E315539E252EF92200329973 /* SceneDelegate.swift in Sources */,
 				E3623E2425381250006E0F2E /* CartTableViewCell.swift in Sources */,
 				E31553BB252F0C3900329973 /* Categories.swift in Sources */,

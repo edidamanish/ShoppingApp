@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="Example" customModuleProvider="target">
             <connections>
+                <outlet property="cartButton" destination="4vW-Ak-4b5" id="UgK-18-FhE"/>
+                <outlet property="cartTableHeight" destination="WiU-BY-3yT" id="Iq5-ls-hgw"/>
                 <outlet property="cartTableView" destination="KAF-Kd-9oy" id="Ph0-Gn-LkC"/>
                 <outlet property="tableView" destination="abK-Gy-wHy" id="4UI-Gs-2iY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="97N-8N-oKu"/>
@@ -20,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="se6-Rd-WV8">
-                    <rect key="frame" x="0.0" y="44" width="414" height="46.5"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="47"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcP-eq-xny">
-                            <rect key="frame" x="0.0" y="13" width="414" height="20.5"/>
+                            <rect key="frame" x="0.0" y="13" width="414" height="21"/>
                             <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -38,7 +40,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="abK-Gy-wHy">
-                    <rect key="frame" x="0.0" y="90.5" width="414" height="771.5"/>
+                    <rect key="frame" x="0.0" y="91" width="414" height="771"/>
                     <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-Ak-4b5">
@@ -54,10 +56,10 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KAF-Kd-9oy">
-                    <rect key="frame" x="50" y="337" width="314" height="450"/>
+                    <rect key="frame" x="20" y="782" width="349" height="0.0"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="450" id="ifC-QK-Rt3"/>
+                        <constraint firstAttribute="height" id="WiU-BY-3yT"/>
                     </constraints>
                 </tableView>
             </subviews>
@@ -68,13 +70,13 @@
                 <constraint firstItem="se6-Rd-WV8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FRU-7Z-Cbs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="abK-Gy-wHy" secondAttribute="bottom" id="GJ5-zW-SEE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="se6-Rd-WV8" secondAttribute="trailing" id="IYr-ua-A2U"/>
-                <constraint firstItem="KAF-Kd-9oy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="MEr-40-mem"/>
+                <constraint firstItem="KAF-Kd-9oy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="MEr-40-mem"/>
                 <constraint firstItem="se6-Rd-WV8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="XZQ-Ba-Qdv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="abK-Gy-wHy" secondAttribute="trailing" id="iRD-I1-T7E"/>
-                <constraint firstItem="KAF-Kd-9oy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pM3-cP-IWV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KAF-Kd-9oy" secondAttribute="trailing" constant="50" id="rPl-Ad-AJL"/>
+                <constraint firstItem="KAF-Kd-9oy" firstAttribute="height" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="kdP-xb-6cC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KAF-Kd-9oy" secondAttribute="trailing" constant="45" id="rPl-Ad-AJL"/>
                 <constraint firstItem="abK-Gy-wHy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ukS-7r-THF"/>
-                <constraint firstItem="4vW-Ak-4b5" firstAttribute="top" secondItem="KAF-Kd-9oy" secondAttribute="bottom" constant="15" id="x4u-Ao-ZnT"/>
+                <constraint firstItem="4vW-Ak-4b5" firstAttribute="top" secondItem="KAF-Kd-9oy" secondAttribute="bottom" constant="20" id="x4u-Ao-ZnT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>

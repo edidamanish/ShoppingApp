@@ -13,6 +13,9 @@ class SecondViewController: UIViewController {
  
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var cartView: CartView!
+    
+    
     var viewModel:ViewModel!
     
    
