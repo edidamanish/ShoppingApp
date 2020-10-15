@@ -12,9 +12,11 @@ final class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var cartTableView: UITableView!
     
     var viewModel:ViewModel!
     
+    var cartOpen = false
  
     
     
@@ -30,19 +32,35 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        
         
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.estimatedRowHeight = 140
         tableView.rowHeight = UITableView.automaticDimension
+        
+        
+        cartTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableVC")
+        cartTableView.delegate = self
+        cartTableView.dataSource = self
+        
+        cartTableView.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
+        cartTableView.layer.borderWidth = 2.0
+        cartTableView.estimatedRowHeight = 42
+        cartTableView.rowHeight = UITableView.automaticDimension
+        
+        
 
         do{
             try viewModel.downloadJson(completion: { [weak self] (succes) in
                 if succes{
                     self?.tableView.reloadData()
+                    self?.cartTableView.reloadData()
                 }
                 else{
                     //handle error
@@ -55,39 +73,89 @@ final class ViewController: UIViewController {
             
         }
     }
+    
+
     // escaping closure
+    @IBAction func cartButton(_ sender: Any) {
+        if cartOpen{
+            cartTableView.alpha = 0
+            cartOpen = false
+            
+        }
+        else{
+            cartTableView.reloadData()
+            cartTableView.alpha = 1
+            cartOpen = true
+        }
+    }
     
 
 }
 
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.getCountOfGroceries()
-       
-        return count
-     
+        if tableView == self.tableView
+        {
+            let count = viewModel.getCountOfGroceries()
+            
+            return count
+        }
+        else{
+            
+            
+            let count = Singleton.shared.getCart().count
+            
+            return count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableViewCell{
+        if tableView == self.tableView
+        {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableViewCell{
+                
+                
+                let cellData = viewModel.getCellData(indexPath: indexPath)
+                
+                //call object
+                return cell.feedData(category: cellData)
+            }
+            return UITableViewCell()
+        }
+        else{
             
-  
-            let cellData = viewModel.getCellData(indexPath: indexPath)
-            
-            //call object
-            return cell.feedData(category: cellData)
+            if let cell = cartTableView.dequeueReusableCell(withIdentifier: "CartTableVC") as? CartTableViewCell{
+                let cart = Singleton.shared.getCart()
+                if cart.count > 0{
+                    let cartData = Singleton.shared.getCart()[indexPath.row]
+                    let category = viewModel.getCategoryWithId(categoryId: cartData.itemId)
+                    return cell.feedData(product: cartData, category: category)
+                }
+                else{
+                    return cell
+                }
+                
+            }
+            return UITableViewCell()
         }
         
         
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let secondVC = SecondViewController.initViewController()
-        self.navigationController?.pushViewController(secondVC, animated: true)
+        if tableView == self.tableView {
+            cartTableView.alpha = 0
+            cartOpen = false
+            let secondVC = SecondViewController.initViewController()
+            self.navigationController?.pushViewController(secondVC, animated: true)
+        }
     }
+    
+    
+    
     
     
 }

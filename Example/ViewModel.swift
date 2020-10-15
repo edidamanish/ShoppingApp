@@ -67,6 +67,22 @@ final class ViewModel{
         
     }
     
+    func getCategoryWithId(categoryId:Int)->(Category?){
+        
+        guard let groceries = categories.groceries else{
+            print("Failed here")
+            return nil
+        }
+        print("Got here")
+        if let index = groceries.firstIndex(where: {$0.id == categoryId}) {
+            print("Found id")
+            return groceries[index]
+        }
+        
+        return nil
+        
+    }
+    
  
 
 }
