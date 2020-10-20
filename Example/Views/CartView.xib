@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="cartButton" destination="Brk-n5-2nz" id="8Wi-wI-EaI"/>
                 <outlet property="cartView" destination="iN0-l3-epB" id="m1g-iQ-Qeb"/>
+                <outlet property="heightConstraint" destination="A6G-X4-xH7" id="Xbd-OT-pQq"/>
                 <outlet property="itemTableView" destination="nE8-Nm-Xhb" id="8He-is-BXk"/>
             </connections>
         </placeholder>
@@ -29,8 +30,11 @@
                     <state key="normal" backgroundImage="cart.fill" catalog="system"/>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nE8-Nm-Xhb">
-                    <rect key="frame" x="0.0" y="0.0" width="370" height="585"/>
+                    <rect key="frame" x="0.0" y="585" width="370" height="0.0"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="A6G-X4-xH7"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +44,6 @@
                 <constraint firstItem="Brk-n5-2nz" firstAttribute="top" secondItem="nE8-Nm-Xhb" secondAttribute="bottom" constant="20" id="Z6k-eZ-9mE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Brk-n5-2nz" secondAttribute="trailing" id="aaq-zE-y5Z"/>
                 <constraint firstItem="nE8-Nm-Xhb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="v00-4L-83H"/>
-                <constraint firstItem="nE8-Nm-Xhb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xV8-OI-xpz"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

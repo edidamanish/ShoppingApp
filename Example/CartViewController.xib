@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Example" customModuleProvider="target">
+            <connections>
+                <outlet property="cartButton" destination="tIi-xf-0T2" id="YHQ-On-MTB"/>
+                <outlet property="cartTableHeight" destination="QKI-si-7x0" id="Ggo-ji-OS9"/>
+                <outlet property="cartTableView" destination="pNz-P8-DAC" id="QB0-3B-Peo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="CartTableViewCell" customModule="Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIi-xf-0T2">
+                    <rect key="frame" x="349" y="803.5" width="45" height="43.5"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="0Th-4R-6pd"/>
+                        <constraint firstAttribute="height" constant="45" id="fQE-9U-Uey"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="cart.fill" catalog="system"/>
+                    <connections>
+                        <action selector="tapCart:" destination="-1" eventType="touchUpInside" id="bwo-mm-UAs"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pNz-P8-DAC">
+                    <rect key="frame" x="20" y="782" width="349" height="0.0"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="999" id="QKI-si-7x0"/>
+                    </constraints>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="pNz-P8-DAC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="4Ja-8f-WO0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tIi-xf-0T2" secondAttribute="bottom" constant="15" id="TuI-eI-Bj6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pNz-P8-DAC" secondAttribute="trailing" constant="45" id="ZON-9g-6IQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tIi-xf-0T2" secondAttribute="trailing" constant="20" id="fAi-uM-gR6"/>
+                <constraint firstItem="pNz-P8-DAC" firstAttribute="height" relation="lessThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="iZH-g5-fqY"/>
+                <constraint firstItem="tIi-xf-0T2" firstAttribute="top" secondItem="pNz-P8-DAC" secondAttribute="bottom" constant="20" id="lVj-WC-IUP"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="143"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
+    </resources>
+</document>

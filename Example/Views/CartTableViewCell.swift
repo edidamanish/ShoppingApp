@@ -13,7 +13,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var itemId: UILabel!
     @IBOutlet weak var quantity: UILabel!
     
-    var viewModel = ViewModel(networkManager: URLSession.shared)
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
