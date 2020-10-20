@@ -8,15 +8,18 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, ViewControllerDelegate {
+
 
  
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var cartView: CartView!
+   
     
+    @IBOutlet weak var cartButton: UIButton!
     
     var viewModel:ViewModel!
+    var cartVC:CartViewController!
     
    
     
@@ -38,6 +41,10 @@ class SecondViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        cartButton.layer.cornerRadius = 10
+        cartButton.clipsToBounds = true
+        
         
     
         
@@ -62,6 +69,26 @@ class SecondViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         
     }
+    
+    
+    @IBAction func tapCartButton(_ sender: Any) {
+        cartVC = CartViewController.initViewController()
+        cartVC.vcDelegate = self
+        cartVC.modalPresentationStyle = .overCurrentContext
+        self.view.isOpaque = false
+        self.view.alpha = 0.5
+        
+        
+        present(cartVC, animated: false, completion: nil)
+        
+    }
+    
+    func didDismissCartVC() {
+        self.view.isOpaque = true
+        self.view.alpha = 1
+    }
+    
+    
     
     /*
     // MARK: - Navigation

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondViewController" customModule="Example" customModuleProvider="target">
             <connections>
+                <outlet property="cartButton" destination="vHu-dP-fhs" id="gvJ-AJ-XLd"/>
                 <outlet property="collectionView" destination="zPq-MV-0IC" id="ogM-DQ-j1d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -60,11 +61,25 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-dP-fhs">
+                    <rect key="frame" x="349" y="803.5" width="45" height="43.5"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="IrP-YH-jtn"/>
+                        <constraint firstAttribute="height" constant="45" id="JjO-X3-PVW"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="cart" catalog="system"/>
+                    <connections>
+                        <action selector="tapCartButton:" destination="-1" eventType="touchUpInside" id="hij-4m-ivd"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gQK-CX-Cdp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4T5-bN-wIJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vHu-dP-fhs" secondAttribute="trailing" constant="20" id="CTs-iv-jhO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zPq-MV-0IC" secondAttribute="trailing" constant="12" id="IR4-gM-efb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vHu-dP-fhs" secondAttribute="bottom" constant="15" id="U1J-QE-eXY"/>
                 <constraint firstItem="gQK-CX-Cdp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c7W-QB-Pu7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gQK-CX-Cdp" secondAttribute="trailing" id="ccH-rg-iH8"/>
                 <constraint firstItem="zPq-MV-0IC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="d7j-9m-M7X"/>
@@ -77,5 +92,6 @@
     </objects>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
     </resources>
 </document>
